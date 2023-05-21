@@ -1,24 +1,20 @@
 [package]
+edition = "2021"
 name = "vulkan-helper"
 version = "0.1.0"
-license = "MIT"
-edition = "2018"
-exclude = ["index.node"]
 
 [lib]
 crate-type = ["cdylib"]
 
-# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
-
-
-[profile.release]
-opt-level = 2
-strip = true
-
 [dependencies]
 ash = "0.37.2"
+# Default enable napi4 feature, see https://nodejs.org/api/n-api.html#node-api-version-matrix
+napi = { version = "2.12.0", default-features = false, features = ["napi4"] }
+napi-derive = "2.12.2"
 
-[dependencies.neon]
-version = "0.10"
-default-features = false
-features = ["napi-6"]
+[build-dependencies]
+napi-build = "2.0.1"
+
+[profile.release]
+lto = true
+strip = true

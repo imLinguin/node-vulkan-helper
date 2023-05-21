@@ -1,23 +1,29 @@
 {
   "name": "vulkan-helper",
   "version": "0.1.0",
-  "description": "",
-  "main": "index.node",
+  "main": "index.js",
   "types": "index.d.ts",
-  "files": [
-    "index.d.ts",
-    "index.node"
-  ],
-  "scripts": {
-    "build": "cargo-cp-artifact -nc index.node -- cargo build --message-format=json-render-diagnostics",
-    "build-debug": "yarn build",
-    "build-release": "yarn build --release",
-    "install": "yarn build-release",
-    "test": "cargo test"
+  "napi": {
+    "name": "vulkan-helper",
+    "triples": {}
   },
-  "author": "Paweł Lidwin",
   "license": "MIT",
   "devDependencies": {
-    "cargo-cp-artifact": "^0.1"
-  }
+    "@napi-rs/cli": "^2.15.2"
+  },
+  "ava": {
+    "timeout": "3m"
+  },
+  "engines": {
+    "node": ">= 10"
+  },
+  "scripts": {
+    "artifacts": "napi artifacts",
+    "build": "napi build --platform --release",
+    "build:debug": "napi build --platform",
+    "prepublishOnly": "napi prepublish -t npm",
+    "universal": "napi universal",
+    "version": "napi version"
+  },
+  "packageManager": "yarn@3.5.1"
 }
