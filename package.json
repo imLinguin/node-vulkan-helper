@@ -3,7 +3,11 @@
   "version": "0.1.0",
   "description": "",
   "main": "index.node",
-  "types": "src/lib.d.ts",
+  "types": "index.d.ts",
+  "files": [
+    "index.d.ts",
+    "index.node"
+  ],
   "scripts": {
     "build": "cargo-cp-artifact -nc index.node -- cargo build --message-format=json-render-diagnostics",
     "build-debug": "yarn build",
@@ -11,7 +15,7 @@
     "install": "yarn build-release",
     "test": "cargo test"
   },
-  "author": "",
+  "author": "Paweł Lidwin",
   "license": "MIT",
   "devDependencies": {
     "cargo-cp-artifact": "^0.1"
