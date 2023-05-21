@@ -8,8 +8,8 @@ This library provides misc function for checking vulkan versions. And can be eas
 
 Currently there are two functions you can use.
 
-`getInstanceVersion` - returns vulkan loader version `[major, minor, patch]`
-`getPhisicalVersions` - reutrns array of devices and vulkan versions they support
+`getInstanceVersion` - returns vulkan loader version `[major, minor, patch]`  
+`getPhysicalVersions` - reutrns array of devices and vulkan versions they support
 
 ## Installing vulkan-helper
 
